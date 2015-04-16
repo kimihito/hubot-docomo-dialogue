@@ -28,9 +28,9 @@ module.exports = (robot) ->
       payload.mode = ctx.mode
 
     res
-      .http 'https://api.apigw.smt.docomo.ne.jp/dialogue/v1/dialogue'
-      .header 'Content-Type', 'application/json'
-      .query APIKEY: process.env.HUBOT_DOCOMO_DIALOGUE_API_KEY
+      .http('https://api.apigw.smt.docomo.ne.jp/dialogue/v1/dialogue')
+      .header('Content-Type', 'application/json')
+      .query(APIKEY: process.env.HUBOT_DOCOMO_DIALOGUE_API_KEY)
       .post(JSON.stringify(payload)) (err, _, body) ->
         if err?
           robot.logger.error e
